@@ -43,7 +43,9 @@ export class InventoryAllocator {
                     }
                 }
             }
-            shipment.push(new Map([[warehouse.name, itemsToShip]]));
+            if (itemsToShip.size > 0) {
+                shipment.push(new Map([[warehouse.name, itemsToShip]]));
+            }
             if (
                 Array.from(order.values()).every(
                     (orderQuantity: number) => orderQuantity === 0
